@@ -1,0 +1,21 @@
+{
+  "name": "express-interface",
+  "version": "1.0.0",
+  "description": "IR ESP Remote interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "esp",
+    "express",
+    "javascript"
+  ],
+  "author": "Dragos Sandu",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "pug": "^2.0.3"
+  }
+}
