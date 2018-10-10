@@ -15,12 +15,16 @@ app.get('/', (req, res) => {
         // res.send(command);
 });
 
-app.post('/',(req,res)=>{
+app.post('/poweron',(req,res)=>{
 
 command = req.body.powerOn; // here you can get the value of from the textbox
     res.render('index');
-    //res.send(command);
-    //res.json({command: command}
+});
+
+app.post('/arrowup',(req,res)=>{
+
+    command = req.body.arrowUp; // here you can get the value of from the textbox
+    res.render('index');
 });
 
 app.get('/command',(req,res)=>{
