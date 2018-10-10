@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const port = 3000;
 const bodyParser= require('body-parser');
+let port = process.env.PORT || 3000;
 
 let command = -1;
 
@@ -24,4 +24,4 @@ command = req.body.powerOn; // here you can get the value of from the textbox
 
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log('Server is running on port ' + port));
