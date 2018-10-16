@@ -1,11 +1,17 @@
 doctype html
-head
-    meta(charset='UTF-8')
-    title A/C Remote Control
-#message
+        head
+        meta(charset='UTF-8')
+        title A/C Remote Control
+        #message
         h1 Hello World
-        h3 pug's in the house
-
+        h3 pug&apos;s in the house
         form(method='post')
-            button(formaction='/poweron',formmethod='post',name='powerOn',type='submit',value='2172573225') Power On
-            button(formaction='/arrowup',formmethod='post',name='arrowUp',type='submit',value='2172560985') Arrow Up
+        button(formaction='/poweron', formmethod='post', name='powerOn', type='submit', value='2172573225') Power On
+        button(formaction='/arrowup', formmethod='post', name='arrowUp', type='submit', value='2172560985') Arrow Up
+        button(formaction='/arrowdown', formmethod='post', name='arrowDown', type='submit', value='2172524265') Arrow Down
+        button(formaction='/fan', formmethod='post', name='fan', type='submit', value='2172528345') Fan
+        button(formaction='/nightmode', formmethod='post', name='nightMode', type='submit', value='2172540585') Night Mode
+        button(formaction='/format', formmethod='post', name='format', type='submit', value='2172532425') Format
+        button(formaction='/mode', formmethod='post', name='mode', type='submit', value='2172544665') Mode
+        button(formaction='/angle', formmethod='post', name='angle', type='submit', value='2172577305') Angle
+        button(formaction='/timer', formmethod='post', name='timer', type='submit', value='2172556905') Timer

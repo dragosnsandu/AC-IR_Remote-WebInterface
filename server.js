@@ -27,6 +27,48 @@ app.post('/arrowup',(req,res)=>{
     res.render('index');
 });
 
+app.post('/arrowdown',(req,res)=>{
+
+    command = req.body.arrowDown; // here you can get the value of from the textbox
+    res.render('index');
+});
+
+app.post('/fan',(req,res)=>{
+
+    command = req.body.fan; // here you can get the value of from the textbox
+    res.render('index');
+});
+
+app.post('/nightmode',(req,res)=>{
+
+    command = req.body.nightMode; // here you can get the value of from the textbox
+    res.render('index');
+});
+
+app.post('/format',(req,res)=>{
+
+    command = req.body.format; // here you can get the value of from the textbox
+    res.render('index');
+});
+
+app.post('/mode',(req,res)=>{
+
+    command = req.body.mode; // here you can get the value of from the textbox
+    res.render('index');
+});
+
+app.post('/angle',(req,res)=>{
+
+    command = req.body.angle; // here you can get the value of from the textbox
+    res.render('index');
+});
+
+app.post('/timer',(req,res)=>{
+
+    command = req.body.timer; // here you can get the value of from the textbox
+    res.render('index');
+});
+
 app.get('/command',(req,res)=>{
     res.send(command.toString());
 });
