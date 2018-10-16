@@ -6,6 +6,7 @@ let port = process.env.PORT || 3000;
 let command = -1;
 
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static(__dirname ));
 
 app.set('view engine', 'pug');
 

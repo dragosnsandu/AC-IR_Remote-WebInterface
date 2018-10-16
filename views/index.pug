@@ -2,16 +2,39 @@ doctype html
 head
     meta(charset='UTF-8')
     title A/C Remote Control
-#message
-h1 P5 405 A/C Remote Control
-h3 Control A/C from everywhere, anywhere*
-form(method='post')
-    button(formaction='/poweron', formmethod='post', name='powerOn', type='submit', value='2172573225') Power On
-    button(formaction='/arrowup', formmethod='post', name='arrowUp', type='submit', value='2172560985') Arrow Up
-    button(formaction='/arrowdown', formmethod='post', name='arrowDown', type='submit', value='2172524265') Arrow Down
-    button(formaction='/fan', formmethod='post', name='fan', type='submit', value='2172528345') Fan
-    button(formaction='/nightmode', formmethod='post', name='nightMode', type='submit', value='2172524265') Night Mode
-    button(formaction='/format', formmethod='post', name='format', type='submit', value='2172524265') Format
-    button(formaction='/mode', formmethod='post', name='mode', type='submit', value='2172524265') Mode
-    button(formaction='/angle', formmethod='post', name='angle', type='submit', value='2172524265') Angle
-    button(formaction='/timer', formmethod='post', name='timer', type='submit', value='2172524265') Timer
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    link(rel='stylesheet', type='text/css', href='css/style.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
+#container
+    h1 P5 405 A/C Remote Control
+    h3 Control A/C from everywhere, anywhere*
+    #form
+        form(method='post')
+            .element
+                button(formaction='/fan', formmethod='post', name='fan', type='submit', class='btn btn-primary btn-lg', value='2172528345')
+                    span.glyphicon.glyphicon-retweet
+            .element
+                button(formaction='/arrowup', formmethod='post', name='arrowUp', type='submit', class='btn btn-primary btn-lg',value='2172560985')
+                    span.glyphicon.glyphicon-triangle-top
+            .element
+                button(formaction='/mode', formmethod='post', name='mode', type='submit', class='btn btn-primary btn-lg', value='2172524265')
+                    span.glyphicon.glyphicon-option-vertical
+            .element
+                button(formaction='/angle', formmethod='post', name='angle', type='submit', class='btn btn-primary btn-lg', value='2172524265')
+                    span.glyphicon.glyphicon-folder-open
+            .element
+                button(formaction='/arrowdown', formmethod='post', name='arrowDown', type='submit', class='btn btn-primary btn-lg', value='2172524265')
+                    span.glyphicon.glyphicon-triangle-bottom
+            .element
+                button(formaction='/timer', formmethod='post', name='timer', type='submit', class='btn btn-primary btn-lg', value='2172524265')
+                    span.glyphicon.glyphicon-time
+            .element
+                button(formaction='/nightmode', formmethod='post', name='nightMode', type='submit', class='btn btn-primary btn-lg', value='2172524265')
+                    span.glyphicon.glyphicon-sunglasses
+            .element
+                button(formaction='/poweron', formmethod='post', name='powerOn', type='submit', class='btn btn-primary btn-lg',value='2172573225')
+                    span.glyphicon.glyphicon-off
+            .element
+                button(formaction='/format', formmethod='post', name='format', type='submit', class='btn btn-primary btn-lg', value='2172524265')
+                    span.glyphicon.glyphicon-copyright-mark
