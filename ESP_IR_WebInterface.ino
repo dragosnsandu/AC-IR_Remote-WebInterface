@@ -4,19 +4,24 @@
  Author:	Dragos Sandu
 */
 
-#include <Wire.h>
 #include <WiFi.h>
-#include <ESP32WebServer.h>
 #include <HTTPClient.h>
+#include "config.h"
+#include <IRremote.h>
 
-String code, prefix, receivedCode;
+String code, prefix;
 WiFiClient client;
 unsigned long codeReceived;
+unsigned long oldcodeReceived;
 unsigned char codeBuf[4];
 char buf[11];
 
-const char* ssid = "********";
-const char* password = "*********";
+const char* ssid = SSID;
+const char* password = PASSWORD;
+
+const byte IR_LED = 15;
+
+IRsend irsend(IR_LED);
 
 void setup() {
 
@@ -27,9 +32,7 @@ void setup() {
 	}
 
 	//irReceiver.enableIRIn(); //for reading IR codes 
-	Wire.begin(4, 5); //4 for data, 5 for clock
 	Serial.begin(9600);
-	Serial.println("I2C Master on ESP32 ready!");
 }
 
 //AC Codes:
@@ -59,7 +62,7 @@ void loop() {
 	//}
 	
 	if ((WiFi.status() == WL_CONNECTED)) {
-
+    Serial.println("Connected");
 		HTTPClient http;
 
 		http.begin("https://ir-remote-webinterface.azurewebsites.net/command"); //Specify the URL
@@ -68,25 +71,21 @@ void loop() {
 		if (httpCode > 0) { //Check for the returning code
 			String payload = http.getString();
 			payload.toCharArray(buf,sizeof(buf));
+      oldcodeReceived = codeReceived;
 			codeReceived = strtoul(buf, NULL, 10);
-		}
-
-		else {
+      Serial.println(codeReceived);
+      if (codeReceived != oldcodeReceived) {
+        irsend.sendNEC(codeReceived, 32);
+      }
+        
+  	}
+  	else {
 			Serial.println("Error on HTTP request");
 		}
 
 		http.end(); //Free the resources
 	
 	}
-
-	codeBuf[0] = (int)((codeReceived >> 24) & 0xFF);
-	codeBuf[1] = (int)((codeReceived >> 16) & 0xFF);
-	codeBuf[2] = (int)((codeReceived >> 8) & 0XFF);
-	codeBuf[3] = (int)((codeReceived & 0XFF));
-
-	Wire.beginTransmission(6); // transmit to device #6
-	Wire.write(codeBuf,4);              // sends one byte to Nano via I2C
-	Wire.endTransmission();    // stop transmitting
 
 	delay(2000);
 }
