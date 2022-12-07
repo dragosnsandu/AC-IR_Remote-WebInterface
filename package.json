@@ -14,8 +14,8 @@
   "author": "Dragos Sandu",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "pug": "^2.0.3"
   }
 }
